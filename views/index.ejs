@@ -3,9 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+
   </head>
 
   <body>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+require('../server');
+mapboxgl.accessToken = process.env.MAPBOX_KEY;
+  container: 'map',
+  center: [-122.420679, 37.772537],
+  zoom: 13,
+  style: 'mapbox://styles/mapbox/streets-v9',
+  hash: true
+});
+</script>
+
 
   </body>
 </html>
