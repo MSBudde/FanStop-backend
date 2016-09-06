@@ -49,7 +49,7 @@ function findTheToken(req) {
   var token;
 
   var header = req.get('Authorization');
-  if (!header) header = req.get('Authorization');
+  if (!header) header = req.get('Authorisation');
 
    if (header) {
      var match = header.match(/(bearer|token) (.*)/i);
