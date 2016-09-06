@@ -1,12 +1,19 @@
 var express  = require('express');
 var router   = express.Router();
-var passport = require('passport')
-var User     = require('../models/User')
+var passport = require('passport');
+var usersCtrl = require('../controllers/users');
+var token = require('../config/tokens');
 
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'FanSpot'});
 });
+
+
+router.post('/api/users', usersCtrl.create);
+router.get( '/api/users/me', token.authenticate, usersCtrl.currentUser);
+
+router.post('/api/token',token.create);
 
 router.get('/auth/facebook',
   passport.authenticate('facebook'));
