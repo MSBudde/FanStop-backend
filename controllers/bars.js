@@ -11,7 +11,7 @@ function index(req, res, next) {
 
 function create(req, res, next) {
   Bar
-  .create(req.body)
+  .create(req.body.data)
   .then(function(bar) {
     res.json({
       success: true,
@@ -46,6 +46,19 @@ function currentBar(req, res, next) {
      next(err);
    });
 }
+
+
+  function findOrCreate(data,cb) {
+    var bar = new this();
+    this.findOne({name: data.name}, function(err, result){
+      if(!result){
+        bar.name = data.name;
+        bar.save(cb)
+      } else {
+        cb(err, result)
+      }
+    })
+  }
 
 module.exports = {
   index: index,
