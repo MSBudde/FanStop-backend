@@ -18,8 +18,8 @@ function create(req, res, next) {
       message: 'Successfully created bar.',
       data: {
         name: bar.name,
-        address: bar.address,
-        id:    bar._id
+        address: bar.location.address[0] + bar.location.address[1],
+        id: bar._id
       }
     });
   }).catch(function(err) {
@@ -48,7 +48,7 @@ function currentBar(req, res, next) {
 }
 
 
-  function findOrCreate(data,cb) {
+  function findOrCreate(data, cb) {
     var bar = new this();
     this.findOne({name: data.name}, function(err, result){
       if(!result){
