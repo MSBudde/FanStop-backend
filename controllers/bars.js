@@ -66,6 +66,5 @@ module.exports = {
   index: index,
   create: create,
   currentBar: currentBar,
-  findOrCreate: findOrCreate,
-  destroyALL: destroyALL
+  findOrCreate: findOrCreate
 }
