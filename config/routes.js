@@ -16,6 +16,7 @@ router.get( '/api/users/me', token.authenticate, usersCtrl.currentUser);
 router.post('/api/token',token.create);
 
 router.get('/api/bars', barsCtrl.index)
+router.delete('/api/bars', barsCtrl.deleteALL)
 router.post('/api/bars', barsCtrl.create);
 
 
