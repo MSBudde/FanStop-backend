@@ -49,8 +49,7 @@ function currentBar(req, res, next) {
 
 
   function findOrCreate(data, cb) {
-    var bar = new this();
-    this.findOne({name: data.name}, function(err, result){
+    Bar.findOne({name: data.name}, function(err, result){
       if(!result){
         bar.name = data.name;
         bar.save(cb)
