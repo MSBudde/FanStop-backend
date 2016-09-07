@@ -18,7 +18,7 @@ function create(req, res, next) {
       message: 'Successfully created bar.',
       data: {
         name: bar.name,
-        address: bar.location,
+        address: bar.location.display_address.address[0],
         id: bar._id
       }
     });
