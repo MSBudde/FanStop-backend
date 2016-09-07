@@ -63,5 +63,6 @@ function currentBar(req, res, next) {
 module.exports = {
   index: index,
   create: create,
-  currentBar: currentBar
+  currentBar: currentBar,
+  findOrCreate: findOrCreate
 }
