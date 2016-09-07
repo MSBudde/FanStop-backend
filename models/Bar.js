@@ -11,7 +11,7 @@ var barSchema = new mongoose.Schema({
     postedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'}
-    }
+    
   }]
 
 })
