@@ -11,7 +11,7 @@ function index(req, res, next) {
 
 function create(req, res, next) {
   Bar
-  .create(req.body.data)
+  .create(req.body)
   .then(function(bar) {
     res.json({
       success: true,
