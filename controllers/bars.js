@@ -60,16 +60,7 @@ function currentBar(req, res, next) {
     })
   }
 
-  function destroyALL(req, res, next) {
 
-    Bar.remove({}, function(err) {
-  // Only triggers if there is a major problem; will not fail if trying to remove something that isn't there
-    if (err) next(err);
-
-  // If it's a successful delete
-  res.json({msg: "Your search has been deleted, good sir or madam."});
-});
-  }
 
 module.exports = {
   index: index,
