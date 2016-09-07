@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'FanSpot'});
 });
 
-
+router.get('/api/users', usersCtrl.index)
 router.post('/api/users', usersCtrl.create);
 router.get( '/api/users/me', token.authenticate, usersCtrl.currentUser);
 
