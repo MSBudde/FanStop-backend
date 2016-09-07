@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api/users', usersCtrl.index)
-router.post('/api/users', usersCtrl.findOrCreate);
+router.post('/api/users', usersCtrl.create);
 router.get( '/api/users/me', token.authenticate, usersCtrl.currentUser);
 
 router.post('/api/token',token.create);
