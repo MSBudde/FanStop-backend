@@ -69,17 +69,17 @@ function updateBar(req, res, next) {
       res.send(err);
     }
     console.log(req.body)
-    // if (req.body.team.name)  bar.votes.team  = req.body.team.name;
+    if (req.body.team.name)  bar.votes.team  = req.body.team.name;
 
-    // sa
-    // bar.save(function(err, updatedBar) {
-    //   if (err) {
-    //     res.send(err);
-    //   }
-    //   // log a message
-    //   console.log("As long as you're advocating, human…");
-    //   res.json(updatedBar);
-    // });
+    
+    bar.save(function(err, updatedBar) {
+      if (err) {
+        res.send(err);
+      }
+      // log a message
+      console.log("As long as you're advocating, human…");
+      res.json(updatedBar);
+    });
   });
 
 }
