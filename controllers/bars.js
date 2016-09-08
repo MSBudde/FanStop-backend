@@ -48,20 +48,17 @@ function create(req, res, next) {
   } )
 };
 
-function currentBar(req, res, next) {
-  Bar
-   .findOne({email: req.decoded.email}).exec()
-   .then(function(bar) {
-     res.json({
-       success: true,
-       message: 'Successfully retrieved bar data.',
-       data: bar
-     });
-   })
-   .catch(function(err) {
-     next(err);
-   });
-}
+var show = function(req, res, next){
+  var id = req.params.id;
+
+  Bar.findById(id, function(err, bar){
+    if (err) {
+      res.send(err);
+    }
+
+    res.json(bar);
+  });
+
 
 function updateBar(req, res, next) {
   var id = req.params.id;
@@ -94,6 +91,6 @@ function updateBar(req, res, next) {
 module.exports = {
   index: index,
   create: create,
-  currentBar: currentBar,
+  show: show,
   updateBar: updateBar
 }
