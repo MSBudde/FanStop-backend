@@ -12,7 +12,7 @@ function index(req, res, next) {
 function create(req, res, next) {
   var newBar = {
     name: req.body.name,
-    address: req.body.location.display_address.address[0],
+    address: req.body.location.address[0],
     lat: req.body.display_address.coordinate.lattitude,
     lng: req.body.display_address.coordinate.longitude
   }
