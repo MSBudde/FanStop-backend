@@ -13,7 +13,7 @@ function create(req, res, next) {
   var newBar = {
     name: req.body.name,
     address: req.body.location.address[0],
-    lat: req.body.location.coordinate.lattitude,
+    lat: req.body.location.coordinate.latitude,
     lng: req.body.location.coordinate.longitude
   }
   Bar.findOne({name: newBar.name}, function(err, storedBar) {
