@@ -62,22 +62,11 @@ function currentBar(req, res, next) {
 }
 
 
-  function findOrCreate(data, cb) {
-    Bar.findOne({name: data.x`name}, function(err, result){
-      if(!result){
-        bar.name = data.name;
-        bar.save(cb)
-      } else {
-        cb(err, result)
-      }
-    })
-  }
 
 
 
 module.exports = {
   index: index,
   create: create,
-  currentBar: currentBar,
-  findOrCreate: findOrCreate
+  currentBar: currentBar
 }
