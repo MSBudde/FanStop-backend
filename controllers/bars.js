@@ -97,5 +97,5 @@ module.exports = {
   index: index,
   create: create,
   currentBar: currentBar,
-  updatedBar: updatedBar
+  updateBar: updateBar
 }
