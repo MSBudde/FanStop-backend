@@ -17,9 +17,10 @@ function create(req, res, next) {
     lng: req.body.display_address.coordinate.longitude
   }
   Bar.findOne({name: newBar.name}, function(err, storedBar) {
+    console.log(storedBar)
     if(storedBar){
       res.json({message: 'bar already created'})
-
+      console.log('did i get here')
     } else {
       Bar
       .create(newBar)
@@ -34,6 +35,7 @@ function create(req, res, next) {
           }
         });
       }).catch(function(err) {
+        console.log('am i here')
         if (err.message.match(/E11000/)) {
           err.status = 409;
         } else {
