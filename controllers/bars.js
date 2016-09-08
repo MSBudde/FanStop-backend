@@ -73,7 +73,7 @@ function updateBar(req, res, next) {
     }
 
     // set the new pledge information if it exists in the request
-    if (req.body)  bar.votes.team  = req.body;
+    if (req.body.team.name)  bar.votes.team  = req.body.team.name;
 
     // save the pledge
     bar.save(function(err, updatedBar) {
