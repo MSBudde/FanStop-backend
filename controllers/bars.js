@@ -58,7 +58,7 @@ var show = function(req, res, next){
 
     res.json(bar);
   });
-
+}
 
 function updateBar(req, res, next) {
   var id = req.params.id;
@@ -71,7 +71,7 @@ function updateBar(req, res, next) {
     console.log(req.body)
     if (req.body.team.name)  bar.votes.team  = req.body.team.name;
 
-    
+
     bar.save(function(err, updatedBar) {
       if (err) {
         res.send(err);
