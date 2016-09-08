@@ -72,19 +72,17 @@ function updateBar(req, res, next) {
       res.send(err);
     }
     console.log(req.body)
-    // set the new pledge information if it exists in the request
     // if (req.body.team.name)  bar.votes.team  = req.body.team.name;
 
-    // save the pledge
-    bar.save(function(err, updatedBar) {
-      if (err) {
-        res.send(err);
-      }
-      // log a message
-      console.log("As long as you're advocating, human…");
-      // return the pledge
-      res.json(updatedBar);
-    });
+    // sa
+    // bar.save(function(err, updatedBar) {
+    //   if (err) {
+    //     res.send(err);
+    //   }
+    //   // log a message
+    //   console.log("As long as you're advocating, human…");
+    //   res.json(updatedBar);
+    // });
   });
 
 }
