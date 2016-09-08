@@ -17,6 +17,7 @@ router.post('/api/token',token.create);
 
 router.get('/api/bars', barsCtrl.index)
 router.post('/api/bars', barsCtrl.create);
+router.patch('/api/bars/:id', barsCtrl.updateBar)
 
 
 // router.get('/auth/facebook',

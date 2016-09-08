@@ -11,8 +11,12 @@ var barSchema = new mongoose.Schema({
     postedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'}
+  }],
+  votes:[{
+    team: [],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }]
-
 })
 
 module.exports = mongoose.model('Bar', barSchema)

@@ -63,6 +63,32 @@ function currentBar(req, res, next) {
    });
 }
 
+function updateBar(req, res, next) {
+  var id = req.params.id;
+
+  Bar.findById(id, function(err, bar) {
+
+    if (err) {
+      res.send(err);
+    }
+
+    // set the new pledge information if it exists in the request
+    if (req.body)  bar.votes.team  = req.body;
+
+    // save the pledge
+    bar.save(function(err, updatedBar) {
+      if (err) {
+        res.send(err);
+      }
+      // log a message
+      console.log("As long as you're advocating, human…");
+      // return the pledge
+      res.json(updatedBar);
+    });
+  });
+
+}
+
 
 
 
@@ -70,5 +96,6 @@ function currentBar(req, res, next) {
 module.exports = {
   index: index,
   create: create,
-  currentBar: currentBar
+  currentBar: currentBar,
+  updatedBar: updatedBar
 }
