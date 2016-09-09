@@ -62,14 +62,17 @@ var show = function(req, res, next){
 
 function updateBar(req, res, next) {
   var id = req.params.id;
-
+  console.log("body is:", req.body)
+  console.log("token is:", req.decoded)
   Bar.findById(id, function(err, bar) {
-
     if (err) {
       res.send(err);
     }
-    console.log(req.body)
-    if (req.body.team.name)  bar.votes.team  = req.body.team.name;
+    console.log("bar is", bar)
+    bar.votes.push({
+      team: req.body,
+      user: req.decoded._id
+    })
 
 
     bar.save(function(err, updatedBar) {
@@ -77,7 +80,7 @@ function updateBar(req, res, next) {
         res.send(err);
       }
       // log a message
-      console.log("As long as you're advocating, human…");
+      console.log("saved");
       res.json(updatedBar);
     });
   });

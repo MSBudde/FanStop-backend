@@ -13,9 +13,15 @@ var barSchema = new mongoose.Schema({
       ref: 'User'}
   }],
   votes:[{
-    team: [],
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    team: {
+      voteNum: Number,
+      name: String,
+      icon: String
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
   }]
 })
 

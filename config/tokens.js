@@ -92,6 +92,7 @@ function generateJwt (user, options) {
 
 function extractPayload(user, options) {
   return {
+    _id: user._id,
     email: user.email,
     username: user.username,
     use: 'fanStop_api'
