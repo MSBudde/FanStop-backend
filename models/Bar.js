@@ -25,4 +25,12 @@ var barSchema = new mongoose.Schema({
   }]
 })
 
+var Bar = mongoose.model('Bar', barSchema)
+
+Bar.aggregate(
+  {'$uwind': '$votes.team.voteNum'},
+  { '$group': {
+    'name' : '$votes.team.name'
+  }}
+)
 module.exports = mongoose.model('Bar', barSchema)
